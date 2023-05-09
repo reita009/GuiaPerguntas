@@ -1,0 +1,23 @@
+{
+  "name": "guiaperguntas",
+  "version": "1.0.0",
+  "description": "um sistema de perguntas e respostas",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reita009/GuiaPerguntas.git"
+  },
+  "author": "Julio Santana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reita009/GuiaPerguntas/issues"
+  },
+  "homepage": "https://github.com/reita009/GuiaPerguntas#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
