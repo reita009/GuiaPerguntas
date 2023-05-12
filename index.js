@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 //conexão com banco
 const connection = require("./database/database");
-const PerguntaModel = require("./database/Pergunta");
+const Pergunta = require("./database/Pergunta");
 connection
   .authenticate()
   .then(() => {
@@ -20,7 +20,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 //rotas
 app.get("/", (req, res) => {
-  res.render("index", {});
+  Pergunta.findAll({ raw: true }).then((perguntas) => {
+    res.render("index", {
+      perguntas: perguntas,
+    });
+  });
 });
 app.get("/perguntar", (req, res) => {
   res.render("perguntar");
@@ -29,7 +33,12 @@ app.get("/perguntar", (req, res) => {
 app.post("/salvarpergunta", (req, res) => {
   var titulo = req.body.titulo;
   var descricao = req.body.descricao;
-  res.send(`titulo ${titulo}   descrição ${descricao}`);
+  Pergunta.create({
+    titulo: titulo,
+    descricao: descricao,
+  }).then(() => {
+    res.redirect("/");
+  });
 });
 
 app.listen(8081, () => {
