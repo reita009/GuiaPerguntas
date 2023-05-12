@@ -9,12 +9,18 @@
         <h3>Realizar pergunta</h3>
       </div>
       <div class="card-body">
-        <form action="">
+        <form action="/salvarpergunta" method="POST">
           <label for="">Título</label>
-          <input class="form-control" type="text" placeholder="Título" />
+          <input
+            name="titulo"
+            class="form-control"
+            type="text"
+            placeholder="Título"
+          />
           <br />
           <label for="">Descrição</label>
           <textarea
+            name="descricao"
             class="form-control"
             placeholder="Descreva sua pergunta aqui!"
           ></textarea>
